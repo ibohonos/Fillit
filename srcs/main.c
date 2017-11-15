@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/13 18:56:14 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/15 14:32:15 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ int main(int argc, char **argv)
 {
     int		fd;
     int     ch;
+    int     height;
+    int     width;
+    char    *map;
     t_list	*list;
     t_list	*b_list;
 
@@ -37,6 +40,11 @@ int main(int argc, char **argv)
     close(fd);
     list = b_list;
     ft_list_print(list, ch);
-    ft_map_create();
+    height = 4;
+    width = 4;
+    map = ft_map_create(height, width);
+    ft_putstr(GRN);
+    ft_putstr(map);
+    ft_putstr(RESET);
     return (0);
 }

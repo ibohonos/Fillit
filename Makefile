@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 19:23:35 by ibohonos          #+#    #+#              #
-#    Updated: 2017/11/13 18:39:56 by ibohonos         ###   ########.fr        #
+#    Updated: 2017/11/14 16:59:33 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ LIB_AR 	= ar rc $(LIB) $(LIB_OBJ)
 LIB_RAN = ranlib $(LIB)
 
 all: $(NAME)
-	@$(MAKE) $(NAME)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 	$(CC) $(FLAGS) -I $(INCL_DIR) -o $@ -c $<

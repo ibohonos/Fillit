@@ -6,62 +6,38 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:39:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/13 20:15:24 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/15 14:28:46 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void    ft_map_create()
+char    *ft_map_create(int height, int width)
 {
     int     i;
     int     j;
-    int     height;
-    int     width;
-    char    **map;
+    char    *map;
 
-    height = 4;
-    width = 4;
-    map = (char **)malloc(sizeof(char *) * (height * width + 1));
+    j = (width + 1) * height;
+    map = (char *)malloc(sizeof(char) * j + 1);
     if (map == NULL)
     {
         ft_putstr(RED);
-        ft_putstr("map NULL\n");
+        ft_putstr("Map NULL\n");
         ft_putstr(RESET);
-        return ;
+        return (NULL);
     }
     i = 0;
-    while (i < height)
+    while (i < j)
     {
-        j = 0;
-        while (j < width)
+        if (i == width)
         {
-            map[i] = (char *)malloc(sizeof(char) * width);
-            map[i][j] = '.';
-            ft_putstr(GRN);
-            ft_putchar(map[i][j]);
-            ft_putstr(RESET);
-            j++;
+            map[i] = '\n';
+            width += height + 1;
         }
-        map[i][j] = '\n';
-        ft_putchar(map[i][j]);
+        else
+            map[i] = '.';
         i++;
     }
-    // map[++i][++j] = '\0';
-    // map[i] = NULL;
-    // ft_putstr(RED);
-    // ft_putstr("map[i++]\n");
-    // ft_putstr(RESET);
-    i = 0;
-    while (i < height)
-    {
-        j = 0;
-        ft_putstr(RED);
-        while (map[i][j] != '\n')
-            ft_putchar(map[i][j++]);
-        // ft_putstr(map[i]);
-        ft_putchar('\n');
-        ft_putstr(RESET);
-        i++;
-    }
+    return (map);
 }

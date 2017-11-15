@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:44:03 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/13 18:54:32 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/15 14:28:03 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ typedef struct	s_map
 t_list 			*ft_set_list(t_list *list, int fd);
 void    		ft_list_print(t_list *lst, int ch);
 // void    		ft_trim_tet(t_list *list);
-void    		ft_map_create();
+char    		*ft_map_create();
 
 #endif
