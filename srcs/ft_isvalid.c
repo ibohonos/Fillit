@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isvalid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imelnych <imelnych@student.42.fr>          +#+  +:+       +#+        */
+/*   By: imelnych <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 15:09:55 by imelnych          #+#    #+#             */
-/*   Updated: 2017/11/15 19:15:50 by imelnych         ###   ########.fr       */
+/*   Updated: 2017/11/15 19:26:42 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_isvalid(t_list *list)
 	int		hashcounter;
 	char	*c;
 	int		hash;
-	int		count;
 
 	hash = '#';
 	if (!list)
@@ -26,14 +25,12 @@ int	ft_isvalid(t_list *list)
 	while (list != NULL)
     {
     	c = list->content;
+		// i = 0;
     	if (c[4] == '\n' && c[9] == '\n' && c[14] == '\n'
-    		&& c[19] == '\n' && c[20] == '\n')
+    		&& c[19] == '\n')
     		i = 0;
     	else
-    	{
-    		ft_putendl("error");
     		return (0);
-    	}
     	hashcounter = 0;
         while (i < 21)
         {
@@ -42,23 +39,20 @@ int	ft_isvalid(t_list *list)
         	i++;
         }
         if (hashcounter != 4)
-        {
-        	ft_putendl("error");
         	return (0);
-        }
         hashcounter = 0;
 		i = 0;
 		while (i < 20)
 		{
-			if (str[i] == hash)
+			if (c[i] == hash)
 			{
-				if ((i + 1) < 20 && str[i + 1] == hash)
+				if ((i + 1) < 20 && c[i + 1] == hash)
 					hashcounter++;
-				if ((i - 1) >= 0 && str[i - 1] == hash)
+				if ((i - 1) >= 0 && c[i - 1] == hash)
 					hashcounter++;
-				if ((i + 5) < 20 && str[i + 5] == hash)
+				if ((i + 5) < 20 && c[i + 5] == hash)
 					hashcounter++;
-				if ((i - 5) >= 0 && str[i - 5] == hash)
+				if ((i - 5) >= 0 && c[i - 5] == hash)
 					hashcounter++;
 			}
 			i++;
@@ -66,9 +60,7 @@ int	ft_isvalid(t_list *list)
 		if (hashcounter == 6 || hashcounter == 8)
         	list = list->next;
         else
-        {
-        	ft_putendl("error");
         	return (0);
-        }
     }
+	return (1);
 }
