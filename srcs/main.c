@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: imelnych <imelnych@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/15 14:32:15 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/15 15:57:32 by imelnych         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int argc, char **argv)
     int     ch;
     int     height;
     int     width;
+    int     valid;
     char    *map;
     t_list	*list;
     t_list	*b_list;
@@ -38,6 +39,7 @@ int main(int argc, char **argv)
     }
     list = ft_set_list(list, fd);
     close(fd);
+    valid = ft_isvalid(list);
     list = b_list;
     ft_list_print(list, ch);
     height = 4;
