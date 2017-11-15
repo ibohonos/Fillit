@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:39:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/15 14:28:46 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/15 15:04:18 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ char    *ft_map_create(int height, int width)
             map[i] = '.';
         i++;
     }
+    map[i] = '\n';
     return (map);
 }
