@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/15 19:20:12 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/16 18:32:04 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
     if (argc != 2)
     {
-		ft_putstr(RED "ERROR: File name missing.\n" RESET);
+		ft_putendl(RED "ERROR: File name missing." RESET);
         return (0);
 	}
     ch = 'A';
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
     fd = open(argv[1], O_RDONLY);
     if (fd == 0)
     {
-    	ft_putstr(RED "ERROR: File can not open.\n" RESET);
+    	ft_putendl(RED "ERROR: File can not open." RESET);
     	return (0);
     }
     list = ft_set_list(list, fd);
@@ -43,11 +43,17 @@ int main(int argc, char **argv)
     if (valid != 1)
     {
         // ft_putendl("error");
-        ft_putstr(RED "ERROR: File not valid.\n" RESET);
+        ft_putendl(RED "ERROR: File not valid." RESET);
         return (0);
     }
     list = b_list;
     ft_list_print(list, ch);
+    list = b_list;
+    while (list->next->next != NULL)
+        list = list->next;
+    ft_putstr(MAG);
+    ft_putstr(list->content);
+    ft_putstr(RESET);
     height = 4;
     width = 4;
     map = ft_map_create(height, width);

@@ -6,7 +6,7 @@
 /*   By: imelnych <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 15:09:55 by imelnych          #+#    #+#             */
-/*   Updated: 2017/11/16 14:38:58 by imelnych         ###   ########.fr       */
+/*   Updated: 2017/11/16 18:45:08 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,24 +72,17 @@ int ft_isvalid_shape(char *figure)
 
 int	ft_isvalid(t_list *list)
 {
-	int		i;
-	int		hashcounter;
 	char	*c;
-	int		hash;
 
-	hash = '#';
 	if (!list)
 		return (0);
 	while (list != NULL)
     {
     	c = list->content;
-    	if (ft_isvalid_size(c))
-			i = 0;
-    	else
+    	if (!ft_isvalid_size(c))
     		return (0);
-    	if(ft_isfour_hash(c))
-    		hashcounter = 0;
-    	else return (0);
+    	if(!ft_isfour_hash(c))
+    		return (0);
     	if (ft_isvalid_shape(c))
         	list = list->next;
         else
