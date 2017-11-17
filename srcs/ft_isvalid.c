@@ -70,6 +70,26 @@ int ft_isvalid_shape(char *figure)
     	return (0);
 }
 
+int ft_isdots(char *figure)
+{
+	int dot;
+	int i;
+	int counter;
+
+	dot = '.';
+	i = 0;
+	counter = 0;
+	while (i < 20)
+	{
+		if (figure[i] == dot)
+			counter++;
+		i++;
+	}
+	if (counter!= 12)
+		return (0);
+	return (1);
+}
+
 int	ft_isvalid(t_list *list)
 {
 	char	*c;
@@ -82,6 +102,8 @@ int	ft_isvalid(t_list *list)
     	if (!ft_isvalid_size(c))
     		return (0);
     	if(!ft_isfour_hash(c))
+    		return (0);
+    	if (!ft_isdots(c))
     		return (0);
     	if (ft_isvalid_shape(c))
         	list = list->next;
