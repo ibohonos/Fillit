@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 19:23:35 by ibohonos          #+#    #+#              #
-#    Updated: 2017/11/15 19:20:52 by ibohonos         ###   ########.fr        #
+#    Updated: 2017/11/20 15:19:00 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIB_SRC_DIR = $(LIB_DIR)/srcs
 LIB_OBJ_DIR = $(LIB_DIR)/obj
 
 SRC 	= main.c fillit.c ft_set_list.c ft_list_print.c ft_map_create.c \
-			ft_isvalid.c
+			ft_isvalid.c ft_map_print.c
 OBJ 	= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 LIB 	= libft.a
 LIB_SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \

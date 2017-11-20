@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imelnych <imelnych@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:44:03 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/15 15:54:39 by imelnych         ###   ########.fr       */
+/*   Updated: 2017/11/20 18:39:28 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,26 @@ typedef struct	s_map
 	char		**array;
 }				t_map;
 
-typedef struct hash_coordinates
+typedef struct	s_tetri
 {
-	int			x;
-	int 		y;	
-}				hash_coordinates;
-
-typedef struct s_tetri
-{
-	char			**position;
-	int				w;
-	int				h;
-	char			letter;
+	char		**area;
+	int			w;
+	int			h;
+	char		letter;
 }				t_tetri;
+
+typedef struct	s_area
+{
+	int			min_x;
+	int			min_y;
+	int			max_x;
+	int			max_y;
+}				t_area;
 
 t_list 			*ft_set_list(t_list *list, int fd);
 void    		ft_list_print(t_list *lst, int ch);
 char    		*ft_map_create();
 int				ft_isvalid(t_list *list);
+void			some_func_that_call_place_tetri(t_list *list);
 
 #endif

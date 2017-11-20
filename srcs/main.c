@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/16 18:32:04 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/20 18:47:41 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,13 @@ int main(int argc, char **argv)
         return (0);
     }
     list = b_list;
-    ft_list_print(list, ch);
-    list = b_list;
-    while (list->next->next != NULL)
-        list = list->next;
-    ft_putstr(MAG);
-    ft_putstr(list->content);
-    ft_putstr(RESET);
+    // ft_list_print(list, ch);
+    // list = b_list;
     height = 4;
     width = 4;
     map = ft_map_create(height, width);
+    list = b_list;
+    some_func_that_call_place_tetri(list);
     ft_putstr(GRN);
     ft_putstr(map);
     ft_putstr(RESET);
