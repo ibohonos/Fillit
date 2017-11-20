@@ -31,9 +31,22 @@ typedef struct	s_map
 	char		**array;
 }				t_map;
 
+typedef struct hash_coordinates
+{
+	int			x;
+	int 		y;	
+}				hash_coordinates;
+
+typedef struct s_tetri
+{
+	char			**position;
+	int				w;
+	int				h;
+	char			letter;
+}				t_tetri;
+
 t_list 			*ft_set_list(t_list *list, int fd);
 void    		ft_list_print(t_list *lst, int ch);
-// void    		ft_trim_tet(t_list *list);
 char    		*ft_map_create();
 int				ft_isvalid(t_list *list);
 
