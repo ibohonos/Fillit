@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 13:15:00 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 19:56:40 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 22:06:18 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_map	*ft_map_solve(t_list *list)
 	int		width;
 	int		letter;
 	t_map	*map;
-	t_tetri *tetri;
+	t_tetri	*tetri;
 
 	letter = 'A';
 	tetri = (t_tetri *)malloc(sizeof(t_tetri));

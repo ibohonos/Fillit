@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:39:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 12:46:35 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 22:02:18 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_map	*ft_map_create(int width)
 {
-	int     i;
-	int     j;
-	t_map   *map;
+	int		i;
+	int		j;
+	t_map	*map;
 
 	map = (t_map *)malloc(sizeof(t_map));
 	if (map == NULL)

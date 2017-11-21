@@ -6,15 +6,14 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:31:48 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 18:06:02 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 22:04:10 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 void	fillit(int fd)
-{
-	int		width;
+{;
 	t_map	*map;
 	t_list	*list;
 
@@ -31,7 +30,6 @@ void	fillit(int fd)
 		ft_putendl(RED "ERROR: File not valid." RESET);
 		return ;
 	}
-	width = 4;
 	map = ft_map_solve(list);
 	ft_putstr(MAG);
 	ft_map_print(map);
