@@ -6,20 +6,19 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:39:46 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/15 19:28:22 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 11:37:03 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char    *ft_map_create(int height, int width)
+t_map    *ft_map_create(int width)
 {
     int     i;
     int     j;
-    char    *map;
+    t_map   *map;
 
-    j = (width + 1) * height;
-    map = (char *)malloc(sizeof(char) * j + 1);
+    map = (t_map *)malloc(sizeof(t_map));
     if (map == NULL)
     {
         ft_putstr(RED);
@@ -27,18 +26,19 @@ char    *ft_map_create(int height, int width)
         ft_putstr(RESET);
         return (NULL);
     }
+    map->size = width;
+    map->map = (char **)malloc(sizeof(char *) * width);
     i = 0;
-    while (i < j)
+    while (i < width)
     {
-        if (i == width)
+        map->map[i] = ft_strnew(width);
+        j = 0;
+        while (j < width)
         {
-            map[i] = '\n';
-            width += height + 1;
+            map->map[i][j] = '.';
+            j++;
         }
-        else
-            map[i] = '.';
         i++;
     }
-    map[i] = '\n';
     return (map);
 }

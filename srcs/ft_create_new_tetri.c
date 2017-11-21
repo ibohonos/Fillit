@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_print.c                                     :+:      :+:    :+:   */
+/*   ft_create_new_tetri.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 14:29:35 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 11:55:16 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/11/21 11:50:56 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/11/21 11:51:58 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_map_print(t_map *map)
+t_tetri	*ft_create_new_tetri(char **area, int w, int h, char letter)
 {
-	int i;
+	t_tetri *new_tetri;
 
-	i = 0;
-	while (i < map->size)
-		ft_putendl(map->map[i++]);
-}
-
-void	some_func_that_call_place_tetri(t_list *list)
-{
-	char	*c;
-	int		letter;
-
-	letter = 'A';
-	while (list)
-	{
-		c = list->content;
-		ft_place_tetri(c, letter++);
-		list = list->next;
-	}
+	new_tetri = ft_memalloc(sizeof(t_tetri));
+	new_tetri->area = area;
+	new_tetri->w = w;
+	new_tetri->h = h;
+	new_tetri->letter = letter;
+	return (new_tetri);
 }

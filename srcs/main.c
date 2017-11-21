@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/20 18:47:41 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 11:44:08 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,47 +15,35 @@
 int main(int argc, char **argv)
 {
     int		fd;
-    int     ch;
-    int     height;
     int     width;
-    int     valid;
-    char    *map;
+    t_map   *map;
     t_list	*list;
-    t_list	*b_list;
 
     if (argc != 2)
     {
 		ft_putendl(RED "ERROR: File name missing." RESET);
         return (0);
 	}
-    ch = 'A';
-    list = (t_list *)malloc(sizeof(t_list));
-    b_list = list;
     fd = open(argv[1], O_RDONLY);
-    if (fd == 0)
+    if (fd <= 0)
     {
     	ft_putendl(RED "ERROR: File can not open." RESET);
     	return (0);
     }
+    list = (t_list *)malloc(sizeof(t_list));
     list = ft_set_list(list, fd);
     close(fd);
-    valid = ft_isvalid(list);
-    if (valid != 1)
+    if (ft_isvalid(list) != 1)
     {
         // ft_putendl("error");
         ft_putendl(RED "ERROR: File not valid." RESET);
         return (0);
     }
-    list = b_list;
-    // ft_list_print(list, ch);
-    // list = b_list;
-    height = 4;
     width = 4;
-    map = ft_map_create(height, width);
-    list = b_list;
+    map = ft_map_create(width);
     some_func_that_call_place_tetri(list);
     ft_putstr(GRN);
-    ft_putstr(map);
+    ft_map_print(map);
     ft_putstr(RESET);
     return (0);
 }
