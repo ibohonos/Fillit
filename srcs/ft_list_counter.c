@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_list_counter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 12:50:09 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/11/21 12:41:58 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/11/21 12:45:28 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int main(int argc, char **argv)
+int	ft_list_counter(t_list *list)
 {
-	int		fd;
+	int i;
 
-	if (argc != 2)
+	i = 0;
+	while (list != NULL)
 	{
-		ft_putendl(RED "ERROR: File name missing." RESET);
-		return (0);
+		i++;
+		list = list->next;
 	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd <= 0)
-	{
-		ft_putendl(RED "ERROR: File can not open." RESET);
-		return (0);
-	}
-	fillit(fd);
-	close(fd);
-	return (0);
+	return (i);
 }

@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_place_fig.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 20:38:21 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 12:50:09 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/11/21 16:31:29 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/11/21 20:17:42 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int main(int argc, char **argv)
+t_map	*ft_place_fig(t_map *map, t_tetri *tetri)
 {
-	int		fd;
+	int		i;
+	int		j;
+	int		x;
+	int		y;
 
-	if (argc != 2)
+	i = 0;
+	while (map->map[i] != NULL)
 	{
-		ft_putendl(RED "ERROR: File name missing." RESET);
-		return (0);
+		y = 0;
+		while (tetri->area[y] != NULL)
+		{
+			x = 0;
+			j = 0;
+			while (tetri->area[y][x] != '\0')
+			{
+				if (tetri->area[y][x] == '#')
+				{
+					map->map[i][j] = (char)tetri->letter;
+					j++;
+				}
+				x++;
+			}
+			y++;
+			i++;
+			tetri = tetri->next;
+		}
+		i++;
 	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd <= 0)
-	{
-		ft_putendl(RED "ERROR: File can not open." RESET);
-		return (0);
-	}
-	fillit(fd);
-	close(fd);
-	return (0);
+	return (map);
 }

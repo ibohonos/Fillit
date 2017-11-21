@@ -6,43 +6,39 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 11:54:12 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 11:54:41 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 17:52:20 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_place_tetri(char *figure, int letter)
+t_tetri	*ft_place_tetri(t_tetri *tetri, t_list *list, int letter)
 {
 	t_area	*pos;
 	int		i;
-	char	**area;
+	char	*c;
 
-	pos = ft_find_area(figure);
-	area = (char **)ft_memalloc(sizeof(char *) * (pos->max_y - pos->min_y + 2));
-	i = 0;
-	while (i < pos->max_y - pos->min_y + 1)
+	if (list != NULL)
 	{
-		area[i] = ft_strnew(pos->max_x - pos->min_x + 1);
-		ft_strncpy(area[i], figure + (pos->min_x) + (i + pos->min_y) * 5,
-		pos->max_x - pos->min_x + 1);
-		i++;
+		c = list->content;
+		pos = ft_find_area(c);
+		tetri->area = (char **)ft_memalloc(sizeof(char *) *
+		(pos->max_y - pos->min_y + 2));
+		i = 0;
+		while (i < pos->max_y - pos->min_y + 1)
+		{
+			tetri->area[i] = ft_strnew(pos->max_x - pos->min_x + 1);
+			ft_strncpy(tetri->area[i], c + (pos->min_x) + (i + pos->min_y) * 5,
+			pos->max_x - pos->min_x + 1);
+			i++;
+		}
+		tetri->area[i] = NULL;
+		tetri->w = pos->max_x - pos->min_x + 1;
+		tetri->h = pos->max_y - pos->min_y + 1;
+		tetri->letter = letter++;
+		tetri->next = (t_tetri *)malloc(sizeof(t_tetri));
+		tetri->next = ft_place_tetri(tetri->next, list->next, letter);
+		return (tetri);
 	}
-	area[i] = NULL;
-	i = 0;
-	while (area[i] != NULL)
-	{
-		ft_putstr(CYN);
-		ft_putstr(area[i]);
-		ft_putchar('\n');
-		ft_putstr(RESET);
-		i++;
-	}
-	// ft_putstr(figure);
-	ft_putstr(GRN);
-	ft_putchar(letter);
-	ft_putstr(RESET);
-	ft_putchar('\n');
-	ft_putstr(YEL "=============\n" RESET);
-	// return (area);
+	return (NULL);
 }

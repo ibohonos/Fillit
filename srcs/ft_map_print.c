@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:29:35 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 11:55:16 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/21 16:46:36 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,4 @@ void	ft_map_print(t_map *map)
 	i = 0;
 	while (i < map->size)
 		ft_putendl(map->map[i++]);
-}
-
-void	some_func_that_call_place_tetri(t_list *list)
-{
-	char	*c;
-	int		letter;
-
-	letter = 'A';
-	while (list)
-	{
-		c = list->content;
-		ft_place_tetri(c, letter++);
-		list = list->next;
-	}
 }
