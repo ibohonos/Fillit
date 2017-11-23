@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:44:03 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/23 17:09:47 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/23 17:20:02 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_map				*ft_map_create(int width);
 int					ft_isvalid(t_list *list);
 void				ft_print_tetri(t_tetri *tetri);
 t_area				*ft_find_area(char *figure);
-t_tetri				*ft_place_tetri(t_tetri *tetri, t_list *list, int letter);
+t_tetri				*ft_crop_tetri(t_tetri *tetri, t_list *list, int letter);
 void				ft_map_print(t_map *map);
 void				fillit(char *c);
 int					ft_list_counter(t_list *list);
@@ -64,5 +64,6 @@ int					ft_sqrt(int nb);
 t_map				*ft_map_solve(t_list *list);
 t_map				*ft_map_free(t_map *map);
 int					ft_check_len(int fd);
+void				ft_errors();
 
 #endif

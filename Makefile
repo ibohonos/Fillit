@@ -23,8 +23,8 @@ LIB_SRC_DIR = $(LIB_DIR)/srcs
 LIB_OBJ_DIR = $(LIB_DIR)/obj
 
 SRC 	= main.c fillit.c ft_set_list.c ft_list_print.c ft_map_create.c \
-			ft_isvalid.c ft_map_print.c ft_print_tetri.c ft_find_area.c \
-			ft_place_tetri.c ft_list_counter.c ft_sqrt.c ft_map_solve.c \
+			ft_isvalid.c ft_map_print.c ft_find_area.c \
+			ft_crop_tetri.c ft_list_counter.c ft_sqrt.c ft_map_solve.c \
 			ft_map_free.c ft_place_fig.c ft_check.c
 OBJ 	= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 LIB 	= libft.a
@@ -68,6 +68,7 @@ clean:
 
 fclean: clean
 	/bin/rm -rf $(LIB)
+	/bin/rm -rf $(LIB_DIR)/$(LIB)
 	/bin/rm -rf $(NAME)
 
 re: fclean all
