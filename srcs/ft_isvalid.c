@@ -6,7 +6,7 @@
 /*   By: imelnych <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 15:09:55 by imelnych          #+#    #+#             */
-/*   Updated: 2017/11/21 22:01:43 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/23 11:24:46 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_isvalid_size(char *figure)
 	return (0);
 }
 
-int ft_isfour_hash(char *figure)
+int	ft_isfour_hash(char *figure)
 {
 	int	i;
 	int	hashcounter;
@@ -40,26 +40,24 @@ int ft_isfour_hash(char *figure)
 	return (1);
 }
 
-int ft_isvalid_shape(char *figure)
+int	ft_isvalid_shape(char *figure)
 {
 	int		i;
 	int		hashcounter;
-	int		hash;
 
-	hash = '#';
 	i = 0;
 	hashcounter = 0;
 	while (i < 20)
 	{
-		if (figure[i] == hash)
+		if (figure[i] == '#')
 		{
-			if ((i + 1) < 20 && figure[i + 1] == hash)
+			if ((i + 1) < 20 && figure[i + 1] == '#')
 				hashcounter++;
-			if ((i - 1) >= 0 && figure[i - 1] == hash)
+			if ((i - 1) >= 0 && figure[i - 1] == '#')
 				hashcounter++;
-			if ((i + 5) < 20 && figure[i + 5] == hash)
+			if ((i + 5) < 20 && figure[i + 5] == '#')
 				hashcounter++;
-			if ((i - 5) >= 0 && figure[i - 5] == hash)
+			if ((i - 5) >= 0 && figure[i - 5] == '#')
 				hashcounter++;
 		}
 		i++;
@@ -70,7 +68,7 @@ int ft_isvalid_shape(char *figure)
 		return (0);
 }
 
-int ft_isdots(char *figure)
+int	ft_isdots(char *figure)
 {
 	int dot;
 	int i;
@@ -85,7 +83,7 @@ int ft_isdots(char *figure)
 			counter++;
 		i++;
 	}
-	if (counter!= 12)
+	if (counter != 12)
 		return (0);
 	return (1);
 }
@@ -96,12 +94,14 @@ int	ft_isvalid(t_list *list)
 
 	if (!list)
 		return (0);
+	if (ft_list_counter(list) > 26)
+		return (0);
 	while (list != NULL)
 	{
 		c = list->content;
 		if (!ft_isvalid_size(c))
 			return (0);
-		if(!ft_isfour_hash(c))
+		if (!ft_isfour_hash(c))
 			return (0);
 		if (!ft_isdots(c))
 			return (0);

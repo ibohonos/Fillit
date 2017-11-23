@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:44:03 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/22 16:48:52 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/23 17:09:47 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ typedef struct		s_area
 	int				max_y;
 }					t_area;
 
-t_map				*ft_place_fig(t_map *map, t_tetri *tetri, int x, int y);
+int					ft_check(int fd, int len);
+int					ft_place_fig(t_map *map, t_tetri *tetri);
 t_list				*ft_set_list(t_list *list, int fd);
 void				ft_list_print(t_list *lst, int ch);
 t_map				*ft_map_create(int width);
@@ -57,10 +58,11 @@ void				ft_print_tetri(t_tetri *tetri);
 t_area				*ft_find_area(char *figure);
 t_tetri				*ft_place_tetri(t_tetri *tetri, t_list *list, int letter);
 void				ft_map_print(t_map *map);
-void				fillit(int fd);
+void				fillit(char *c);
 int					ft_list_counter(t_list *list);
 int					ft_sqrt(int nb);
 t_map				*ft_map_solve(t_list *list);
-void				ft_map_free(t_map *map);
+t_map				*ft_map_free(t_map *map);
+int					ft_check_len(int fd);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 13:15:00 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/22 17:04:53 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/23 15:45:58 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ t_map	*ft_map_solve(t_list *list)
 	width = ft_sqrt(ft_list_counter(list) * 4);
 	map = ft_map_create(width);
 	tetri = ft_place_tetri(tetri, list, letter);
-	map = ft_place_fig(map, tetri, 0, 0);
-	ft_print_tetri(tetri);
+	while(!ft_place_fig(map, tetri))
+	{
+		width++;
+		map = ft_map_free(map);
+		map = ft_map_create(width);
+	}
+	// ft_print_tetri(tetri);
 	return (map);
 }

@@ -6,13 +6,13 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 16:47:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 21:59:19 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/23 09:44:06 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void    ft_list_print(t_list *lst, int ch)
+void	ft_list_print(t_list *lst, int ch)
 {
 	while (lst != NULL)
 	{

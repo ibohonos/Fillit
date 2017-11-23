@@ -6,13 +6,14 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 13:22:00 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/21 13:24:55 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/11/23 14:51:02 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_map_free(t_map *map)
+t_map	*ft_map_free(t_map *map)
 {
 	free(map);
+	return (map);
 }
